@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Smoker Detection</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1> Results </h1>
+<h4>Minimize the window to see the full pic</h4>
+<p>
+    <b style="font-size: 30px;">{{imgtag}}</b>
+</p>
+<p>
+    <b style="font-size: 30px;">{{imgprob}}</b>
+</p>
+
+<img src="{{ user_image }}" alt="Result Image">
+<canvas id="canvas1"></canvas>
+
+
+<script>
+    
+    var image=document.querySelector("img");
+    var canvas= document.getElementById("canvas1");
+
+    var ctx= canvas.getContext("2d");
+
+    canvas.width =image.width;
+    canvas.height=image.height;
+
+    ctx.drawImage(image,0,0)
+</script>
+</body>
+
+</html>

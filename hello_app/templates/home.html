@@ -1,7 +1,45 @@
-{% extends "layout.html" %}
-{% block title %}
-Home
-{% endblock %}
-{% block content %}
-<p>Home page for the Visual Studio Code Flask tutorial.</p>
-{% endblock %}
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Smoker Detection</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+ 
+</head>
+
+<body>
+ <div class="disclass">
+	<h1>Smoker Detection </h1>
+ 
+
+     <!-- Main Input For Receiving Query to our Custom Vision -->
+    <form action="{{ url_for('predict')}}"method="post">
+     
+    	<input type="text" name="experience" placeholder="Copy and Paste image url here :" required="required" /><br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Check</button>
+    </form>
+
+   <br>
+   <br>
+  <p style="font-size: 30px;">
+    Instructions:
+  </p>
+  <li style="font-size: 15px;">Search for images of people who smoke or don't.</li>
+  <li style="font-size: 15px;">Image must preferably have only one subject</li>
+  <li style="font-size: 15px;">Select an image and right click to select "Copy image address"</li> 
+  <li style="font-size: 15px;">Sample Image links given below :
+    <p><a href="https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2015/12/09112429/work-life-balance-working-from-home.jpg" style="color: burlywood;">Non Smoker</a> || <a href="https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/01/Male_Smoking_Cigarette_1296x728-header-1296x728.jpg?w=1155&h=1528" style="color:burlywood;">Smoker</a></p></li>
+
+
+   
+ </div>
+
+
+</body>
+</html>
